@@ -22,7 +22,7 @@ class CRM
     puts "[3] Delete a contact"
     puts "[4] Display a contact"
     puts "[5] Display all contacts"
-    puts "[6] Display an attribute"
+    puts "[6] Search by attribute"
     puts "[7] Exit"
     puts "Enter a number: "
   end
@@ -51,7 +51,7 @@ class CRM
     contact_id = gets.chomp.to_i
     contact = @rolodex.find(contact_id)
     puts "#{contact}" + "\n \n"
-    puts "Push Return to continue"
+    puts "Press Return to continue"
     button = gets.chomp
     puts "\e[H\e[2J"
     main_menu
@@ -61,7 +61,8 @@ class CRM
   def display_all
     @rolodex.display_all
     puts "Press Return to continue"
-    button = gets.chomp
+    press = gets.chomp
+    puts "\e[H\e[2J"
     main_menu
   end
 
@@ -99,7 +100,14 @@ class CRM
   def display_attribute
     puts "What do you wish to search for?"
     contact_info = gets.chomp
-    @rolodex.find_by(contact_info)
+    found_contacts = @rolodex.find_by(contact_info)
+    found_contacts.each do |contact|
+        puts contact
+    end
+    puts "Press Return to continue"
+    press = gets.chomp
+    puts "\e[H\e[2J"
+    main_menu
   end
 
   def delete_contact

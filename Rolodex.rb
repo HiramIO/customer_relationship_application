@@ -10,27 +10,34 @@ class Rolodex
   end
 
   def display_all
-    @contacts.each {|x| x.to_s}
+    @contacts.each {|x| puts "#{x.to_s} \n" }
   end
 
   def find(contact_id)
-    @contacts.select do |contact|
-      contact.id == contact_id
+    @contacts.each do |contact|
+      return contact if contact.id == contact_id
     end
+    return nil
   end
 
   def find_by(contact_info)
-    @contacts.select {|x| x == contact_info}
+    @contacts.select do |contact|
+      if contact.first_name == contact_info
+        true
+      elsif contact.last_name == contact_info
+        true
+      else
+        false
+      end
+    end
   end
 
   def modify(modify_id, new_first, new_last, new_email, new_note)
-    @contacts.select do |modify|
-      modify.id == modify_id
-      modify.first_name = new_first
-      modify.last_name = new_last
-      modify.email = new_email
-      modify.note = new_note
-    end
+    modify = find(modify_id)
+    modify.first_name = new_first
+    modify.last_name = new_last
+    modify.email = new_email
+    modify.note = new_note
   end
 
   def delete(delete_id)
