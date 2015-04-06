@@ -10,7 +10,7 @@ class Rolodex
   end
 
   def display_all
-    @contacts.each {|x| all_contacts[].push(x)}
+    @contacts.each {|x| x.to_s}
   end
 
   def find(contact_id)

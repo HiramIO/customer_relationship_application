@@ -40,7 +40,7 @@ class CRM
     modify_existing_contact if user_selected == 2
     delete_contact if user_selected == 3
     display_contact if user_selected == 4
-    display_all if user_selected == 6
+    display_all if user_selected == 5
     display_attribute if user_selected == 6
     exit if user_selected == 7
   end
@@ -59,8 +59,7 @@ class CRM
   end
 
   def display_all
-    all_contacts = @rolodex.display_all
-    puts all_contacts
+    @rolodex.display_all
     puts "Press Return to continue"
     button = gets.chomp
     main_menu
