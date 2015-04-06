@@ -1,0 +1,117 @@
+modues
+
+a bunch of methods together that arent part of a class
+
+that way you can include them in different places.
+
+gives you the ability to reuse
+
+helps us write methods that apply to different things
+
+in oop called a mixin
+
+you cion mixin modules and add to any class you wnt
+
+modules are names like Classes (capsed)
+
+modues are also useful for namespaces.
+
+namespaces are like little sandboxes to protect yu from outside world
+
+if you have something named like something in the outside world, you an trip up
+
+
+
+module Perimeter
+        def perimeter
+    sides.reduce(:+)
+    end
+
+end
+
+class Rectangle
+include perimeter
+
+def initialize(length, width)
+    @length = length
+    @width = width
+    end
+
+    def sides
+    [@length, @width, @length, @width]
+    end
+
+
+end
+
+class Square
+include perimeter
+    def initialize(side)
+    @side = side
+    end
+
+    def sides
+    [@side, @side, @side, @side]
+    end
+
+
+end
+
+class Triangle
+include perimeter
+    def initialize(side)
+    @side = side
+    end
+
+    def sides
+    [@side, @side, @side]
+
+
+
+
+
+
+
+
+
+namespacing
+
+
+
+
+
+
+
+class GymPush
+    def up
+    40
+    end
+end
+
+class DojoPush
+    def up
+    30
+    end
+end
+
+int
+
+module Gym
+    class push
+    def up
+    40
+    end
+    end
+    end
+
+module Dojo
+    class push
+    def up
+    30
+    end
+    end
+    end
+
+dojo = Dojo::Push.new
+
+
