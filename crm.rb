@@ -94,7 +94,12 @@ class CRM
         @rolodex.modify(modify_id, new_first, new_last, new_email, new_note)
         puts "\e[H\e[2J"
         main_menu
+  end
 
+  def display_attribute
+    puts "What do you wish to search for?"
+    contact_info = gets.chomp
+    @rolodex.find_by(contact_info)
   end
 
   def delete_contact

@@ -20,6 +20,7 @@ class Rolodex
   end
 
   def find_by(contact_info)
+    @contacts.select {|x| x == contact_info}
   end
 
   def modify(modify_id, new_first, new_last, new_email, new_note)
