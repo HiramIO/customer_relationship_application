@@ -1,8 +1,8 @@
-class Rolodex
+  class Rolodex
 
   def initialize
     @contacts = []
-    @id = 1000
+    @id = 0
   end
 
   def contacts
@@ -26,8 +26,22 @@ class Rolodex
         true
       elsif contact.last_name == contact_info
         true
+      elsif contact.email == email
+        true
       else
         false
+      end
+    end
+  end
+
+  def find_all(contact_info)
+    @contacts.each do |all|
+      if contact_info == "1"
+        puts "First Name = #{all.first_name.to_s}, ID = #{all.id.to_s}"
+      elsif contact_info == "2"
+        puts "Last Name = #{all.last_name.to_s}, ID = #{all.id.to_s}"
+      elsif contact_info == "3"
+        puts "Email = #{all.email.to_s}, ID = #{all.id.to_s}"
       end
     end
   end
@@ -51,6 +65,7 @@ class Rolodex
     contact.id = @id
     @contacts << contact
     @id += 1
+    puts "Contact ID number #{contact.id.to_s} was added."
   end
 
 end
